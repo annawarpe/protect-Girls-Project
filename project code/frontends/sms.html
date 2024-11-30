@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send SMS Example</title>
+    <script>
+        async function sendSMS() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+
+            const response = await fetch('/send-sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ phoneNumber, message })
+            });
+
+            const result = await response.json();
+            alert(result.status);
+        }
+    </script>
+</head>
+<body>
+    <h1>Send SMS</h1>
+    <input type="text" id="phoneNumber" placeholder="Enter phone number" required>
+    <textarea id="message" placeholder="Enter your message" required></textarea>
+    <button onclick="sendSMS()">Send SMS</button>
+</body>
+</html>

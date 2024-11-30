@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Message Sender</title>
+</head>
+<body>
+    <button id="sendMessageButton">Send Help Message</button>
+
+    <script>
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            const groupID = '8080566299'; // Replace with your WhatsApp group ID
+            const message = 'help';
+            const url = `https://wa.me/${groupID}?text=${encodeURIComponent(message)}`;
+
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
